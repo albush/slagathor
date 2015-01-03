@@ -3,11 +3,12 @@ MAINTAINER yigal@publysher.nl
 
 # Install pygments (for syntax highlighting) 
 RUN apt-get -qq update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends git-core python-pygments \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends locales git-core python-pygments \
 	&& rm -rf /var/lib/apt/lists/*
 	
 # Fix locale
-RUN locale-gen en_US
+RUN dpkg-reconfigure locales
+RUN locale-gen en_US.UTF-8
 
 # Download and install hugo
 ENV HUGO_VERSION 0.12
