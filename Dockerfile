@@ -7,9 +7,8 @@ RUN apt-get -qq update \
 	&& rm -rf /var/lib/apt/lists/*
 	
 # Fix locale
-RUN dpkg-reconfigure locales
 RUN locale-gen en_US.UTF-8
-RUN update-locale LC_ALL="en_US.UTF-8"
+RUN dpkg-reconfigure locales
 
 # Download and install hugo
 ENV HUGO_VERSION 0.12
