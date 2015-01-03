@@ -5,6 +5,9 @@ MAINTAINER yigal@publysher.nl
 RUN apt-get -qq update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends git-core python-pygments \
 	&& rm -rf /var/lib/apt/lists/*
+	
+# Fix locale
+RUN locale-gen en_US.UTF-8
 
 # Download and install hugo
 ENV HUGO_VERSION 0.12
