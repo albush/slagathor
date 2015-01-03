@@ -3,7 +3,7 @@ MAINTAINER yigal@publysher.nl
 
 # Install pygments (for syntax highlighting) 
 RUN apt-get -qq update \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends locales git-core python-pygments \
+	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends locales pip git-core python-pygments \
 	&& rm -rf /var/lib/apt/lists/*
 	
 # Fix locale
