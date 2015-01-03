@@ -3,6 +3,7 @@ MAINTAINER yigal@publysher.nl
 
 # Install pygments (for syntax highlighting) 
 RUN apt-get -qq update \
+	&& apt-get upgrade -y \
 	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends locales build-essential python-dev python-pip git-core python-pygments \
 	&& rm -rf /var/lib/apt/lists/*
 	
