@@ -1,11 +1,11 @@
-FROM debian:wheezy
-MAINTAINER yigal@publysher.nl
+FROM ubuntu:14.04
+MAINTAINER al@albush.com
 
-# Install pygments (for syntax highlighting) 
-RUN apt-get -qq update \
-	&& apt-get upgrade -y \
-	&& DEBIAN_FRONTEND=noninteractive apt-get -qq install -y --no-install-recommends locales build-essential python-dev python-pip git-core python-pygments \
-	&& rm -rf /var/lib/apt/lists/*
+# Install PREREQS 
+RUN apt-get -qq update
+RUN apt-get upgrade -y
+RUN apt-get install -y --no-install-recommends locales build-essential python-dev python-pip git-core python-pygments
+RUN rm -rf /var/lib/apt/lists/*
 	
 # Fix locale
 RUN locale-gen en_US.UTF-8
